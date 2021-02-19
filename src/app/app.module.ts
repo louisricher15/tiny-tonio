@@ -8,6 +8,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from './login/login.component';
 import { SloganComponent } from './home/slogan/slogan.component';
 import { ProductsComponent } from './home/products/products.component';
+import { CreatorsComponent } from './home/creators/creators.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ProductsComponent } from './home/products/products.component';
     HomeComponent,
     LoginComponent,
     SloganComponent,
-    ProductsComponent
+    ProductsComponent,
+    CreatorsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,7 @@
-.products-container {
+.our-products-container {
   display: inline-flex;
   width: calc(100% - 200px);
   margin: 40px 100px;
-
-  & + .products-container {
-    margin-top: 0;
-  }
 
   .our-products {
     display: inline-flex;
@@ -51,6 +47,44 @@
 
       &.wall-arts {
         background-image: url(../../../assets/img/wall-arts-product-cover.jpg);
+      }
+    }
+  }
+}
+
+.favorite-products-container {
+  display: inline-flex;
+  width: calc(100% - 140px);
+  padding: 0 70px;
+
+  h1 {
+    padding-left: 70px;
+    margin-top: 30px;
+  }
+
+  .favorite-products {
+    display: inline;
+    width: 100%;
+
+    .products {
+      display: inline-flex;
+      width: 100%;
+      margin-top: 20px;
+
+      .product {
+        margin: auto;
+        border-radius: 10px;
+        display: inline;
+        cursor: pointer;
+        text-decoration: none;
+        outline: none;
+        color: #555;
+
+        img {
+          width: min(10vw, 225px);
+          height: min(10vw, 225px);
+          border-radius: 10px;
+        }
       }
     }
   }

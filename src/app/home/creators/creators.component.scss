@@ -1,0 +1,32 @@
+.creators-container {
+  display: inline-flex;
+  width: calc(100% - 140px);
+  padding: 0 70px;
+
+  h1 {
+    padding-left: 70px;
+    margin-top: 30px;
+  }
+
+  .creators-content {
+    display: inline;
+    width: 100%;
+
+    .creators {
+      display: inline-flex;
+      width: 100%;
+      margin-top: 20px;
+
+      .creator {
+        width: min(10vw, 225px);
+        height: min(10vw, 225px);
+        margin: auto;
+        border-radius: 10px;
+        transition: background-size ease-in-out 0.5s;
+        display: inline;
+        background-position: center;
+        background-size: 100% 100%;
+      }
+    }
+  }
+}

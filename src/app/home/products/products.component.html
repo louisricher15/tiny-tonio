@@ -1,4 +1,4 @@
-<div class="products-container">
+<div class="our-products-container">
   <div class="our-products">
     <a class="product-presentation bonsais" [routerLink]="'/plants'">
       <button>{{ wording?.ourProducts?.plants[locale] }}</button>
@@ -12,17 +12,65 @@
   </div>
 </div>
 
-<div class="products-container">
+<div class="favorite-products-container">
+  <h1>{{ wording?.ourProducts?.favoriteProducts?.title[locale] }}</h1>
+</div>
+
+<div class="favorite-products-container">
   <div class="favorite-products">
-    <div>
-      <h1>{{ wording?.ourProducts?.favoriteProducts?.title[locale] }}</h1>
+    <div class="products">
+      <a class="product" [routerLink]="'/product'">
+        <img src="assets/img/bonsais-product-cover.png" alt="p">
+        <h3>Bonsaïs</h3>
+        <h4>8.99 €</h4>
+      </a>
+      <a class="product" [routerLink]="'/product'">
+        <img src="assets/img/bebe-yoda-product-cover.png" alt="p">
+        <h3>Figurine Bébé Yoda</h3>
+        <h4>14.99 €</h4>
+      </a>
+      <a class="product" [routerLink]="'/product'">
+        <img src="assets/img/orchid-product-cover.png" alt="p">
+        <h3>Orchidée</h3>
+        <h4>6.99 €</h4>
+      </a>
+      <a class="product" [routerLink]="'/product'">
+        <img src="assets/img/rick-and-morty-product-cover.png" alt="p">
+        <h3>Figurine Rick & Morty</h3>
+        <h4>9.99 €</h4>
+      </a>
+      <a class="product" [routerLink]="'/product'">
+        <img src="assets/img/cactus-product-cover.png" alt="p">
+        <h3>Cactus x2</h3>
+        <h4>3.99 €</h4>
+      </a>
     </div>
-    <div>
-      <div class="product"></div>
-      <div class="product"></div>
-      <div class="product"></div>
-      <div class="product"></div>
-      <div class="product"></div>
+    <div class="products">
+      <a class="product" [routerLink]="'/product'">
+        <img src="assets/img/bonsais-product-cover.png" alt="p">
+        <h3>Bonsaïs</h3>
+        <h4>8.99 €</h4>
+      </a>
+      <a class="product" [routerLink]="'/product'">
+        <img src="assets/img/bebe-yoda-product-cover.png" alt="p">
+        <h3>Figurine Bébé Yoda</h3>
+        <h4>14.99 €</h4>
+      </a>
+      <a class="product" [routerLink]="'/product'">
+        <img src="assets/img/orchid-product-cover.png" alt="p">
+        <h3>Orchidée</h3>
+        <h4>6.99 €</h4>
+      </a>
+      <a class="product" [routerLink]="'/product'">
+        <img src="assets/img/rick-and-morty-product-cover.png" alt="p">
+        <h3>Figurine Rick & Morty</h3>
+        <h4>9.99 €</h4>
+      </a>
+      <a class="product" [routerLink]="'/product'">
+        <img src="assets/img/cactus-product-cover.png" alt="p">
+        <h3>Cactus x2</h3>
+        <h4>3.99 €</h4>
+      </a>
     </div>
   </div>
 </div>

@@ -29,6 +29,11 @@ export class ProductsComponent implements OnInit {
           en: 'Featured Products '
         }
       }
+    },
+    favoriteProducts: {
+      bonsai: {
+        fr: ''
+      }
     }
   }
 
