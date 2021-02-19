@@ -1,0 +1,28 @@
+<div class="products-container">
+  <div class="our-products">
+    <a class="product-presentation bonsais" [routerLink]="'/plants'">
+      <button>{{ wording?.ourProducts?.plants[locale] }}</button>
+    </a>
+    <a class="product-presentation figurines" [routerLink]="'/figurines'">
+      <button>{{ wording?.ourProducts?.figurines[locale] }}</button>
+    </a>
+    <a class="product-presentation wall-arts" [routerLink]="'/wall-arts'">
+      <button>{{ wording?.ourProducts?.wallArts[locale] }}</button>
+    </a>
+  </div>
+</div>
+
+<div class="products-container">
+  <div class="favorite-products">
+    <div>
+      <h1>{{ wording?.ourProducts?.favoriteProducts?.title[locale] }}</h1>
+    </div>
+    <div>
+      <div class="product"></div>
+      <div class="product"></div>
+      <div class="product"></div>
+      <div class="product"></div>
+      <div class="product"></div>
+    </div>
+  </div>
+</div>

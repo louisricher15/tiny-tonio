@@ -1,0 +1,114 @@
+<ng-container *ngIf="showHeader">
+  <div class="header">
+    <a [routerLink]="'/home'"><img src="assets/favicon.ico" alt="tt"></a>
+
+    <div class="nav-container">
+      <div class="nav-header">
+        <select #localeId (change)="setLocale(localeId.value)">
+          <option [selected]="locale === 'fr'" value="fr">FR</option>
+          <option [selected]="locale === 'en'" value="en">EN</option>
+        </select>
+        <div class="separator vertical"></div>
+        <a [routerLink]="'/sell'">{{ wording?.header?.menu?.products[locale] }}</a>
+        <div class="separator vertical"></div>
+        <a [routerLink]="'/login'">{{ wording?.header?.menu?.login[locale] }}</a>
+        <div class="separator vertical"></div>
+        <a [routerLink]="'/register'">{{ wording?.header?.menu?.register[locale] }}</a>
+      </div>
+
+      <div class="search-header">
+        <div class="search-input">
+          <input type="search" #searchInput (keypress)="handleSearch($event, searchInput)"/>
+          <fa-icon [icon]="faSearch" (click)="search(searchInput)"></fa-icon>
+        </div>
+
+        <fa-icon [icon]="faShoppingBag"></fa-icon>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav">
+    <a [routerLink]="'/test1'">{{ wording?.footer?.shop?.figurines }}</a>
+    <a [routerLink]="'/test2'">{{ wording?.footer?.shop?.gadgets }}</a>
+    <a [routerLink]="'/test3'">{{ wording?.footer?.shop?.art[locale] }}</a>
+    <a [routerLink]="'/test4'">{{ wording?.footer?.shop?.goodies }}</a>
+    <a [routerLink]="'/test5'">{{ wording?.footer?.shop?.plants[locale] }}</a>
+  </div>
+</ng-container>
+
+<router-outlet></router-outlet>
+
+<div class="footer">
+  <div class="map">
+    <div>
+      <h2>{{ wording?.footer?.shop?.title[locale] }}</h2>
+      <ul>
+        <li>
+          <a [routerLink]="'/test1'">{{ wording?.footer?.shop?.figurines }}</a>
+        </li>
+        <li>
+          <a [routerLink]="'/test2'">{{ wording?.footer?.shop?.gadgets }}</a>
+        </li>
+        <li>
+          <a [routerLink]="'/test3'">{{ wording?.footer?.shop?.art[locale] }}</a>
+        </li>
+        <li>
+          <a [routerLink]="'/test4'">{{ wording?.footer?.shop?.goodies }}</a>
+        </li>
+        <li>
+          <a [routerLink]="'/test5'">{{ wording?.footer?.shop?.plants[locale] }}</a>
+        </li>
+        <li>
+          <a [routerLink]="'/login'">{{ wording?.footer?.shop?.login[locale] }}</a>
+        </li>
+        <li>
+          <a [routerLink]="'/register'">{{ wording?.footer?.shop?.register[locale] }}</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h2>{{ wording?.footer?.tt?.title }}</h2>
+      <ul>
+        <li>
+          <a [routerLink]="'/test5'">{{ wording?.footer?.tt?.about[locale] }}</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h2>{{ wording?.footer?.networks?.title[locale] }}</h2>
+      <ul>
+        <li>
+          <a [routerLink]="'/test6'">
+            <fa-icon [icon]="faInstagram"></fa-icon>{{ wording?.footer?.networks?.instagram }}
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="'/test7'">
+            <fa-icon [icon]="faFacebook"></fa-icon>{{ wording?.footer?.networks?.facebook }}
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="'/test8'">
+            <fa-icon [icon]="faTwitter"></fa-icon>{{ wording?.footer?.networks?.twitter }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="references">
+    <div class="logo">
+      <a [routerLink]="'/home'"><img src="assets/favicon.ico" alt="tt"></a>
+    </div>
+
+    <div class="usage">
+      <a [routerLink]="'/test9'">{{ wording?.footer?.usage?.cgu[locale] }}</a>
+      <div class="separator rounded-vertical"></div>
+      <a [routerLink]="'/test10'">{{ wording?.footer?.usage?.cookies }}</a>
+    </div>
+
+    <div class="footer">
+      <span>{{ wording?.footer?.footer }}</span>
+    </div>
+  </div>
+</div>

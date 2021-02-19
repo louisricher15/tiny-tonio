@@ -1,0 +1,181 @@
+.cover {
+  display: inline-flex;
+  width: 80%;
+  margin: 0 10%;
+
+  .square_1 { animation: opacityLoop running alternate-reverse infinite 5.5s; }
+  .square_2 { animation: opacityLoop running alternate infinite 3.5s; }
+  .square_3 { animation: opacityLoop running alternate-reverse infinite 4s; }
+  .square_4 { animation: opacityLoop running alternate infinite 4.5s; }
+  .square_5 { animation: opacityLoop running alternate-reverse infinite 5s; }
+  .square_6 { animation: opacityLoop running alternate infinite 4.5s; }
+  .square_7 { animation: opacityLoop running alternate-reverse infinite 6s; }
+  .square_8 { animation: opacityLoop running alternate infinite 6.5s; }
+  .square_9 { animation: opacityLoop running alternate-reverse infinite 7s; }
+  .square_10 { animation: opacityLoop running alternate infinite 7.5s; }
+
+  @keyframes opacityLoop {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  .decoration-left {
+    height: min(13vw, 390px);
+    display: inline-flex;
+    margin-left: auto;
+    background: #f8f8f8;
+    padding: 20px 0 20px 20px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+    .square {
+      &_1 {
+        background: #55a44e;
+        width: min(10vw, 300px);
+        height: min(10vw, 300px);
+        margin-top: min(3vw, 90px);
+        border-radius: 8px;
+
+        ::ng-deep .svg-inline--fa {
+          width: min(9vw, 270px);
+          height: min(9vw, 270px);
+          margin: min(0.5vw, 15px);
+          color: #fff;
+        }
+      }
+
+      &_2 {
+        background: #6622CC;
+        width: min(5vw, 150px);
+        height: min(5vw, 150px);
+        margin-top: min(4vw, 120px);
+        border-radius: 8px;
+
+        ::ng-deep .svg-inline--fa {
+          width: min(4vw, 120px);
+          height: min(4vw, 120px);
+          margin: min(0.5vw, 15px);
+          color: #fff;
+        }
+      }
+
+      &_3 {
+        background: #ede9a3;
+        width: min(3vw, 90px);
+        height: min(3vw, 90px);
+        margin-top: min(7vw, 210px);
+        border-radius: 8px;
+      }
+
+      &_4 {
+        background: #55a44e;
+        width: min(2vw, 60px);
+        height: min(2vw, 60px);
+        margin-left: auto;
+        border-radius: 8px;
+      }
+    }
+  }
+
+  .text {
+    height: min(13vw, 390px);
+    padding: 20px min(2vw, 60vw);
+    display: inline-flex;
+    text-align: center;
+    background: #f8f8f8;
+
+    h1 {
+      margin: auto;
+      font-size: min(2.5vw, 45px);
+      font-weight: lighter;
+    }
+  }
+
+  .decoration-right {
+    height: min(13vw, 390px);
+    display: inline-flex;
+    margin-right: auto;
+    background: #f8f8f8;
+    padding: 20px 20px 20px 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    & > div:first-of-type {
+      margin-left: auto;
+    }
+
+    .square {
+      &_7 {
+        background: #55a44e;
+        width: min(5vw, 150px);
+        height: min(5vw, 150px);
+        border-radius: 8px;
+
+        ::ng-deep .svg-inline--fa {
+          width: min(4vw, 120px);
+          height: min(4vw, 120px);
+          margin: min(0.5vw, 15px);
+          color: #fff;
+        }
+      }
+
+      &_8 {
+        background: #ede9a3;
+        width: min(2vw, 60px);
+        height: min(2vw, 60px);
+        margin-top: min(4vw, 120px);
+        margin-left: auto;
+        border-radius: 8px;
+      }
+
+      &_9 {
+        background: #6622CC;
+        width: min(10vw, 300px);
+        height: min(10vw, 300px);
+        border-radius: 8px;
+
+        ::ng-deep .svg-inline--fa {
+          width: min(9vw, 270px);
+          height: min(9vw, 270px);
+          margin: min(0.5vw, 15px);
+          color: #fff;
+        }
+
+        & + div {
+          display: inline-flex;
+          width: 100%;
+        }
+      }
+
+      &_10 {
+        background: #ede9a3;
+        width: min(2vw, 60px);
+        height: min(2vw, 60px);
+        margin-left: auto;
+        border-radius: 8px;
+      }
+
+      &_5 {
+        background: #55a44e;
+        width: min(3vw, 90px);
+        height: min(3vw, 90px);
+        border-radius: 8px;
+      }
+
+      &_6 {
+        background: #6622CC;
+        width: min(3vw, 90px);
+        height: min(3vw, 90px);
+        margin-top: min(4vw, 120px);
+        border-radius: 8px;
+
+        ::ng-deep .svg-inline--fa {
+          width: min(2vw, 60px);
+          height: min(2vw, 60px);
+          margin: min(0.5vw, 15px);
+          color: #fff;
+        }
+      }
+    }
+  }
+}

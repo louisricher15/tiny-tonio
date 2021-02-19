@@ -1,0 +1,57 @@
+.products-container {
+  display: inline-flex;
+  width: calc(100% - 200px);
+  margin: 40px 100px;
+
+  & + .products-container {
+    margin-top: 0;
+  }
+
+  .our-products {
+    display: inline-flex;
+    width: 100%;
+
+    .product-presentation {
+      width: min(20vw, 450px);
+      height: min(20vw, 450px);
+      margin: auto;
+      border-radius: 10px;
+      transition: background-size ease-in-out 0.5s;
+      display: inline-flex;
+      text-decoration: none;
+      outline: none;
+      background-position: center;
+      background-size: 100% 100%;
+      cursor: pointer;
+
+      &:hover {
+        background-size: 110% 110%;
+      }
+
+      button {
+        cursor: pointer;
+        margin: auto auto 20px auto;
+        background: #fff;
+        height: auto;
+        border-radius: 20px;
+        border: none;
+        box-shadow: 0 2px 2px #000;
+        font-weight: bold;
+        padding: 10px 15px;
+        outline: none;
+      }
+
+      &.bonsais {
+        background-image: url(../../../assets/img/bonsais-product-cover.png);
+      }
+
+      &.figurines {
+        background-image: url(../../../assets/img/figurines-product-cover.jpg);
+      }
+
+      &.wall-arts {
+        background-image: url(../../../assets/img/wall-arts-product-cover.jpg);
+      }
+    }
+  }
+}
