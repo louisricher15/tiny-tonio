@@ -1,6 +1,6 @@
 <ng-container *ngIf="showHeader">
   <div class="header">
-    <a [routerLink]="'/home'"><img src="assets/favicon.ico" alt="tt"></a>
+    <a [routerLink]="['home']"><img src="assets/favicon.ico" alt="tt"></a>
 
     <div class="nav-container">
       <div class="nav-header">
@@ -9,11 +9,20 @@
           <option [selected]="locale === 'en'" value="en">EN</option>
         </select>
         <div class="separator vertical"></div>
-        <a [routerLink]="'/sell'">{{ wording?.header?.menu?.products[locale] }}</a>
+        <a [routerLink]="['submit-your-products']">
+          <ng-container *ngIf="locale === 'fr'">Proposez vos produits</ng-container>
+          <ng-container *ngIf="locale === 'en'">Submit your products</ng-container>
+        </a>
         <div class="separator vertical"></div>
-        <a [routerLink]="'/login'">{{ wording?.header?.menu?.login[locale] }}</a>
+        <a [routerLink]="['login']">
+          <ng-container *ngIf="locale === 'fr'">Se connecter</ng-container>
+          <ng-container *ngIf="locale === 'en'">Log in</ng-container>
+        </a>
         <div class="separator vertical"></div>
-        <a [routerLink]="'/register'">{{ wording?.header?.menu?.register[locale] }}</a>
+        <a [routerLink]="['register']">
+          <ng-container *ngIf="locale === 'fr'">S'inscrire</ng-container>
+          <ng-container *ngIf="locale === 'en'">Sign in</ng-container>
+        </a>
       </div>
 
       <div class="search-header">
@@ -28,11 +37,17 @@
   </div>
 
   <div class="nav">
-    <a [routerLink]="'/test1'">{{ wording?.footer?.shop?.figurines }}</a>
-    <a [routerLink]="'/test2'">{{ wording?.footer?.shop?.gadgets }}</a>
-    <a [routerLink]="'/test3'">{{ wording?.footer?.shop?.art[locale] }}</a>
-    <a [routerLink]="'/test4'">{{ wording?.footer?.shop?.goodies }}</a>
-    <a [routerLink]="'/test5'">{{ wording?.footer?.shop?.plants[locale] }}</a>
+    <a [routerLink]="['figurines']">Figurines</a>
+    <a [routerLink]="['gadgets']">Gadgets</a>
+    <a [routerLink]="['wall-arts']">
+      <ng-container *ngIf="locale === 'fr'">Arts Muraux</ng-container>
+      <ng-container *ngIf="locale === 'en'">Wall Arts</ng-container>
+    </a>
+    <a [routerLink]="['goodies']">Goodies</a>
+    <a [routerLink]="['plants']">
+      <ng-container *ngIf="locale === 'fr'">Plantes</ng-container>
+      <ng-container *ngIf="locale === 'en'">Plants</ng-container>
+    </a>
   </div>
 </ng-container>
 
@@ -41,55 +56,76 @@
 <div class="footer">
   <div class="map">
     <div>
-      <h2>{{ wording?.footer?.shop?.title[locale] }}</h2>
+      <h2>
+        <ng-container *ngIf="locale === 'fr'">Boutique</ng-container>
+        <ng-container *ngIf="locale === 'en'">Shop</ng-container>
+      </h2>
       <ul>
         <li>
-          <a [routerLink]="'/test1'">{{ wording?.footer?.shop?.figurines }}</a>
+          <a [routerLink]="['figurines']">Figurines</a>
         </li>
         <li>
-          <a [routerLink]="'/test2'">{{ wording?.footer?.shop?.gadgets }}</a>
+          <a [routerLink]="['gadgets']">Gadgets</a>
         </li>
         <li>
-          <a [routerLink]="'/test3'">{{ wording?.footer?.shop?.art[locale] }}</a>
+          <a [routerLink]="['wall-arts']">
+            <ng-container *ngIf="locale === 'fr'">Arts Muraux</ng-container>
+            <ng-container *ngIf="locale === 'en'">Wall Arts</ng-container>
+          </a>
         </li>
         <li>
-          <a [routerLink]="'/test4'">{{ wording?.footer?.shop?.goodies }}</a>
+          <a [routerLink]="['goodies']">Goodies</a>
         </li>
         <li>
-          <a [routerLink]="'/test5'">{{ wording?.footer?.shop?.plants[locale] }}</a>
+          <a [routerLink]="['plants']">
+            <ng-container *ngIf="locale === 'fr'">Plantes</ng-container>
+            <ng-container *ngIf="locale === 'en'">Plants</ng-container>
+          </a>
         </li>
         <li>
-          <a [routerLink]="'/login'">{{ wording?.footer?.shop?.login[locale] }}</a>
+          <a [routerLink]="['login']">
+            <ng-container *ngIf="locale === 'fr'">Se connecter</ng-container>
+            <ng-container *ngIf="locale === 'en'">Log in</ng-container>
+          </a>
         </li>
         <li>
-          <a [routerLink]="'/register'">{{ wording?.footer?.shop?.register[locale] }}</a>
+          <a [routerLink]="['register']">
+            <ng-container *ngIf="locale === 'fr'">S'inscrire</ng-container>
+            <ng-container *ngIf="locale === 'en'">Sign in</ng-container>
+          </a>
         </li>
       </ul>
     </div>
     <div>
-      <h2>{{ wording?.footer?.tt?.title }}</h2>
+      <h2>Tiny Tonio</h2>
       <ul>
         <li>
-          <a [routerLink]="'/test5'">{{ wording?.footer?.tt?.about[locale] }}</a>
+          <a [routerLink]="['about']">
+            <ng-container *ngIf="locale === 'fr'">À propos</ng-container>
+            <ng-container *ngIf="locale === 'en'">About</ng-container>
+          </a>
         </li>
       </ul>
     </div>
     <div>
-      <h2>{{ wording?.footer?.networks?.title[locale] }}</h2>
+      <h2>
+        <ng-container *ngIf="locale === 'fr'">Réseaux sociaux</ng-container>
+        <ng-container *ngIf="locale === 'en'">Social Networks</ng-container>
+      </h2>
       <ul>
         <li>
-          <a [routerLink]="'/test6'">
-            <fa-icon [icon]="faInstagram"></fa-icon>{{ wording?.footer?.networks?.instagram }}
+          <a href="https://www.instagram.com/" target="_blank">
+            <fa-icon [icon]="faInstagram"></fa-icon>Instagram
           </a>
         </li>
         <li>
-          <a [routerLink]="'/test7'">
-            <fa-icon [icon]="faFacebook"></fa-icon>{{ wording?.footer?.networks?.facebook }}
+          <a href="https://www.facebook.com/" target="_blank">
+            <fa-icon [icon]="faFacebook"></fa-icon>Facebook
           </a>
         </li>
         <li>
-          <a [routerLink]="'/test8'">
-            <fa-icon [icon]="faTwitter"></fa-icon>{{ wording?.footer?.networks?.twitter }}
+          <a href="https://www.twitter.com/" target="_blank">
+            <fa-icon [icon]="faTwitter"></fa-icon>Twitter
           </a>
         </li>
       </ul>
@@ -98,17 +134,20 @@
 
   <div class="references">
     <div class="logo">
-      <a [routerLink]="'/home'"><img src="assets/favicon.ico" alt="tt"></a>
+      <a [routerLink]="['home']"><img src="assets/favicon.ico" alt="tt"></a>
     </div>
 
     <div class="usage">
-      <a [routerLink]="'/test9'">{{ wording?.footer?.usage?.cgu[locale] }}</a>
+      <a [routerLink]="['terms-of-service']">
+        <ng-container *ngIf="locale === 'fr'">Conditions Générales d'Utilisation</ng-container>
+        <ng-container *ngIf="locale === 'en'">Terms of Service</ng-container>
+      </a>
       <div class="separator rounded-vertical"></div>
-      <a [routerLink]="'/test10'">{{ wording?.footer?.usage?.cookies }}</a>
+      <a [routerLink]="['cookies']">Cookies</a>
     </div>
 
     <div class="footer">
-      <span>{{ wording?.footer?.footer }}</span>
+      <span>© 2021 Tiny Tonio</span>
     </div>
   </div>
 </div>

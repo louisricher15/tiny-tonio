@@ -9,6 +9,15 @@ import { LoginComponent } from './login/login.component';
 import { SloganComponent } from './home/slogan/slogan.component';
 import { ProductsComponent } from './home/products/products.component';
 import { CreatorsComponent } from './home/creators/creators.component';
+import { SubmitProductsComponent } from './submit-products/submit-products.component';
+import { RegisterComponent } from './register/register.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { ShoppingCardComponent } from './shopping-card/shopping-card.component';
+import { ProfileComponent } from './profile/profile.component';
+import { AboutComponent } from './about/about.component';
+import { CookiesComponent } from './cookies/cookies.component';
+import { TermsOfServiceComponent } from './terms-of-service/terms-of-service.component';
+import { ComingSoonMessageComponent } from './coming-soon-message/coming-soon-message.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +26,16 @@ import { CreatorsComponent } from './home/creators/creators.component';
     LoginComponent,
     SloganComponent,
     ProductsComponent,
-    CreatorsComponent
+    CreatorsComponent,
+    SubmitProductsComponent,
+    RegisterComponent,
+    SearchResultsComponent,
+    ShoppingCardComponent,
+    ProfileComponent,
+    AboutComponent,
+    CookiesComponent,
+    TermsOfServiceComponent,
+    ComingSoonMessageComponent
   ],
   imports: [
     BrowserModule,

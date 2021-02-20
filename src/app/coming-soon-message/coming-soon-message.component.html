@@ -1,0 +1,17 @@
+<div class="coming-soon-message">
+  <div class="message-container">
+    <div class="img">
+      <fa-icon [icon]="faCogs"></fa-icon>
+    </div>
+    <div class="texts-button">
+      <p>
+        <ng-container *ngIf="locale === 'fr'">Cette page n'est pas disponible pour le moment...</ng-container>
+        <ng-container *ngIf="locale === 'en'">This page is unavaible at this moment...</ng-container>
+      </p>
+      <a [routerLink]="'/home'">
+        <ng-container *ngIf="locale === 'fr'">Retourner à l'accueil</ng-container>
+        <ng-container *ngIf="locale === 'en'">Go back to home page</ng-container>
+      </a>
+    </div>
+  </div>
+</div>

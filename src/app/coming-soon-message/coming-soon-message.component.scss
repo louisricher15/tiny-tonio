@@ -1,0 +1,42 @@
+.coming-soon-message {
+  display: inline-flex;
+  width: 100%;
+
+  .message-container {
+    display: inline;
+    width: calc(100% - 280px);
+    margin: 40px 140px;
+    background: #f8f8f8;
+    padding: 70px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 2px #c8c8c8;
+
+    .img {
+      ::ng-deep .svg-inline--fa {
+        height: min(10vw, 300px);
+        width: min(10vw, 300px);
+      }
+    }
+
+    .texts-button {
+      p {
+        margin: 30px 0;
+        font-size: 2em;
+      }
+
+      a {
+        text-decoration: none;
+        border-radius: 20px;
+        background: #fff;
+        box-shadow: 0 2px 2px #c8c8c8;
+        padding: 10px 15px;
+        margin: auto;
+        outline: none;
+        display: inline-block;
+        color: #000;
+        font-weight: bold;
+      }
+    }
+  }
+}
