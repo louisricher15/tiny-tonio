@@ -19,13 +19,56 @@
 
       .creator {
         width: min(10vw, 225px);
-        height: min(10vw, 225px);
         margin: auto;
         border-radius: 10px;
         transition: background-size ease-in-out 0.5s;
         display: inline;
         background-position: center;
         background-size: 100% 100%;
+
+        .avatar {
+          box-shadow: 0 2px 2px #c5c5c5;
+          display: inline-flex;
+          margin-bottom: 10px;
+        }
+
+        img, .avatar {
+          height: min(10vw, 225px);
+          width: min(10vw, 225px);
+          border-radius: 50%;
+        }
+
+        ::ng-deep .svg-inline--fa {
+          height: min(5vw, 150px);
+          width: min(5vw, 150px);
+        }
+
+        fa-icon { margin: auto; }
+
+        h3 {
+          width: 100%;
+          text-align: center;
+          display: inline-block;
+          margin: 5px 0;
+        }
+
+        h3 + div {
+          text-align: center;
+          margin: 5px 0;
+
+          a {
+            text-decoration: none;
+            border-radius: 20px;
+            background: #fff;
+            box-shadow: 0 2px 2px #555;
+            padding: 10px 15px;
+            margin: auto;
+            outline: none;
+            display: inline-block;
+            color: #000;
+            font-weight: bold;
+          }
+        }
       }
     }
   }

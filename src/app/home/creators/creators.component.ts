@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-creators',
@@ -8,6 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CreatorsComponent implements OnInit {
 
   @Input() locale: string = '';
+  faUser = faUser;
 
   constructor() { }
 

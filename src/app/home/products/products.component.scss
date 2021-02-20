@@ -19,6 +19,7 @@
       background-position: center;
       background-size: 100% 100%;
       cursor: pointer;
+      box-shadow: 0 2px 2px #c5c5c5;
 
       &:hover {
         background-size: 110% 110%;
@@ -38,15 +39,15 @@
       }
 
       &.bonsais {
-        background-image: url(../../../assets/img/bonsais-product-cover.png);
+        background-image: url(../../../assets/img/products/bonsais-product-cover.png);
       }
 
       &.figurines {
-        background-image: url(../../../assets/img/figurines-product-cover.jpg);
+        background-image: url(../../../assets/img/products/figurines-product-cover.jpg);
       }
 
       &.wall-arts {
-        background-image: url(../../../assets/img/wall-arts-product-cover.jpg);
+        background-image: url(../../../assets/img/products/wall-arts-product-cover.jpg);
       }
     }
   }
@@ -84,6 +85,7 @@
           width: min(10vw, 225px);
           height: min(10vw, 225px);
           border-radius: 10px;
+          box-shadow: 0 2px 2px #c5c5c5;
         }
       }
     }

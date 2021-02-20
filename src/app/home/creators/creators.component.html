@@ -6,24 +6,44 @@
   <div class="creators-content">
     <div class="creators">
       <div class="creator">
-        <img src="" alt="c">
+        <div class="avatar">
+          <fa-icon [icon]="faUser" *ngIf="true"></fa-icon>
+          <img src="" alt="c" *ngIf="false">
+        </div>
         <h3>John Doe</h3>
-        <a [routerLink]="'/creator'">Voir le Profil</a>
+        <div>
+          <a [routerLink]="'/creator'">Voir le Profil</a>
+        </div>
       </div>
       <div class="creator">
-        <img src="" alt="c">
+        <div class="avatar">
+          <fa-icon [icon]="faUser" *ngIf="true"></fa-icon>
+          <img src="" alt="c" *ngIf="false">
+        </div>
         <h3>Ant Jo</h3>
-        <a [routerLink]="'/creator'">Voir le Profil</a>
+        <div>
+          <a [routerLink]="'/creator'">Voir le Profil</a>
+        </div>
       </div>
       <div class="creator">
-        <img src="" alt="c">
+        <div class="avatar">
+          <fa-icon [icon]="faUser" *ngIf="false"></fa-icon>
+          <img src="../../../assets/img/creators/alejandro-sosa-creator-cover.jpg" alt="c" *ngIf="true">
+        </div>
         <h3>Alejandro Sosa</h3>
-        <a [routerLink]="'/creator'">Voir le Profil</a>
+        <div>
+          <a [routerLink]="'/creator'">Voir le Profil</a>
+        </div>
       </div>
       <div class="creator">
-        <img src="" alt="c">
+        <div class="avatar">
+          <fa-icon [icon]="faUser" *ngIf="true"></fa-icon>
+          <img src="" alt="c" *ngIf="false">
+        </div>
         <h3>Lu Pet</h3>
-        <a [routerLink]="'/creator'">Voir le Profil</a>
+        <div>
+          <a [routerLink]="'/creator'">Voir le Profil</a>
+        </div>
       </div>
     </div>
   </div>
