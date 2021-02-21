@@ -35,6 +35,15 @@
           color: #55a44e;
           transition: color ease-in-out 0.25s;
         }
+
+        &.logout {
+          margin-left: 10px;
+          cursor: pointer;
+
+          &:hover {
+            color: #d21616;
+          }
+        }
       }
     }
 

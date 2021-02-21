@@ -6,8 +6,8 @@ import { Subject } from "rxjs";
 })
 export class CommonService {
 
-  headerVisible = true;
-  headerVisibleSubject: Subject<boolean> = new Subject<boolean>();
+  headerAndFooterVisible = true;
+  headerAndFooterVisibleSubject: Subject<boolean> = new Subject<boolean>();
 
   locale = 'fr';
   localeSubject: Subject<string> = new Subject<string>();
@@ -15,8 +15,8 @@ export class CommonService {
   constructor() { }
 
   setHeaderVisibility(visible: boolean) {
-    this.headerVisible = visible;
-    this.headerVisibleSubject.next(this.headerVisible);
+    this.headerAndFooterVisible = visible;
+    this.headerAndFooterVisibleSubject.next(this.headerAndFooterVisible);
   }
 
   setLocale(locale: string) {

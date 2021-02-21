@@ -1,1 +1,50 @@
-<p>login works!</p>
+<div class="login">
+  <form [formGroup]="login" (ngSubmit)="_login()">
+    <a [routerLink]="'/home'"><img src="assets/favicon.ico" alt="tt"></a>
+
+    <h2>
+      <ng-container *ngIf="locale === 'fr'">Se connecter</ng-container>
+      <ng-container *ngIf="locale === 'en'">Log in </ng-container>
+    </h2>
+
+    <input type="text" [placeholder]="locale === 'fr' ? 'Nom d\'utilisateur' : 'Username'" formControlName="username"/>
+    <div class="input-error">
+      <ng-container *ngIf="(login?.get('username')?.dirty || login?.get('username')?.touched || submitted) &&
+      login?.get('username')?.hasError('required')">
+        <ng-container *ngIf="locale === 'fr'">Ce champ est requis.</ng-container>
+        <ng-container *ngIf="locale === 'en'">This field is required.</ng-container>
+      </ng-container>
+    </div>
+
+    <input type="password" [placeholder]="locale === 'fr' ? 'Mot de passe' : 'Password'" formControlName="password"/>
+    <div class="input-error">
+      <ng-container *ngIf="(login?.get('password')?.dirty || login?.get('password')?.touched || submitted) &&
+      login?.get('password')?.hasError('required')">
+        <ng-container *ngIf="locale === 'fr'">Ce champ est requis.</ng-container>
+        <ng-container *ngIf="locale === 'en'">This field is required.</ng-container>
+      </ng-container>
+    </div>
+
+    <div class="form-error" *ngIf="(login?.get('password')?.dirty || login?.get('password')?.touched || submitted) &&
+      login?.hasError('wrongCredentials')">
+      <ng-container *ngIf="locale === 'fr'">Mauvais identifiants.</ng-container>
+      <ng-container *ngIf="locale === 'en'">Wrong Credentias.</ng-container>
+    </div>
+
+    <input type="submit" [value]="locale === 'fr' ? 'Connexion' : 'Login'">
+
+    <div>
+      <a [routerLink]="'/forgot-password'">
+        <ng-container *ngIf="locale === 'fr'">Mot de passe oublié ?</ng-container>
+        <ng-container *ngIf="locale === 'en'">Forgot your password ?</ng-container>
+      </a>
+    </div>
+
+    <div>
+      <a [routerLink]="'/register'">
+        <ng-container *ngIf="locale === 'fr'">S'inscrire</ng-container>
+        <ng-container *ngIf="locale === 'en'">Sign in</ng-container>
+      </a>
+    </div>
+  </form>
+</div>

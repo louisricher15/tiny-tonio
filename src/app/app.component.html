@@ -1,4 +1,4 @@
-<ng-container *ngIf="showHeader">
+<ng-container *ngIf="showHeaderAndFooter">
   <div class="header">
     <a [routerLink]="['home']"><img src="assets/favicon.ico" alt="tt"></a>
 
@@ -14,15 +14,23 @@
           <ng-container *ngIf="locale === 'en'">Submit your products</ng-container>
         </a>
         <div class="separator vertical"></div>
-        <a [routerLink]="['login']">
-          <ng-container *ngIf="locale === 'fr'">Se connecter</ng-container>
-          <ng-container *ngIf="locale === 'en'">Log in</ng-container>
-        </a>
-        <div class="separator vertical"></div>
-        <a [routerLink]="['register']">
-          <ng-container *ngIf="locale === 'fr'">S'inscrire</ng-container>
-          <ng-container *ngIf="locale === 'en'">Sign in</ng-container>
-        </a>
+        <ng-container *ngIf="currentSession === null">
+          <a [routerLink]="['login']">
+            <ng-container *ngIf="locale === 'fr'">Se connecter</ng-container>
+            <ng-container *ngIf="locale === 'en'">Log in</ng-container>
+          </a>
+          <div class="separator vertical"></div>
+          <a [routerLink]="['register']">
+            <ng-container *ngIf="locale === 'fr'">S'inscrire</ng-container>
+            <ng-container *ngIf="locale === 'en'">Sign in</ng-container>
+          </a>
+        </ng-container>
+        <ng-container *ngIf="currentSession !== null">
+          <a [routerLink]="['profile']">
+            {{ getConnectedUserName() }}
+          </a>
+          <a class="logout" (click)="logout()"><fa-icon [icon]="faSignOutAlt"></fa-icon></a>
+        </ng-container>
       </div>
 
       <div class="search-header">
@@ -53,7 +61,8 @@
 
 <router-outlet></router-outlet>
 
-<div class="footer">
+<ng-container *ngIf="showHeaderAndFooter">
+  <div class="footer">
   <div class="map">
     <div>
       <h2>
@@ -151,3 +160,4 @@
     </div>
   </div>
 </div>
+</ng-container>

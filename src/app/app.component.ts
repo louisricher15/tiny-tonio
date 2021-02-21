@@ -1,8 +1,9 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { faSearch, faShoppingBag } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faShoppingBag, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { CommonService } from "./services/common.service";
 import { Router } from "@angular/router";
+import {AuthService} from "./services/auth.service";
 
 @Component({
   selector: 'app-root',
@@ -20,16 +21,20 @@ export class AppComponent implements OnInit, AfterViewInit {
   faInstagram = faInstagram;
   faTwitter = faTwitter;
   faFacebook = faFacebook;
+  faSignOutAlt = faSignOutAlt;
 
-  showHeader = false;
+  showHeaderAndFooter = false;
+  currentSession: any = null;
 
-  constructor(private commonService: CommonService, private router: Router) { }
+  constructor(private commonService: CommonService, private router: Router, private auth: AuthService) { }
 
   ngOnInit() { }
 
   ngAfterViewInit() {
-    this.commonService.headerVisibleSubject.subscribe(data => this.showHeader = data);
+    this.commonService.headerAndFooterVisibleSubject.subscribe(data => this.showHeaderAndFooter = data);
     this.commonService.localeSubject.subscribe(data => this.locale = data);
+    this.auth.currentUserConnectedSubject.subscribe(data => this.currentSession = data);
+    // this.currentSession = this.auth.getCurrentSession();
   }
 
   handleSearch(event: KeyboardEvent, search: HTMLInputElement) {
@@ -45,5 +50,13 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   setLocale(locale: string) {
     this.commonService.setLocale(locale);
+  }
+
+  getConnectedUserName() {
+    return `${this.currentSession.firstname} ${this.currentSession.lastname}`;
+  }
+
+  logout() {
+    this.router.navigate(['login']).then(() => localStorage.removeItem('tt-current-session'));
   }
 }
