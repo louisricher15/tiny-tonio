@@ -18,7 +18,8 @@ import { AboutComponent } from './about/about.component';
 import { CookiesComponent } from './cookies/cookies.component';
 import { TermsOfServiceComponent } from './terms-of-service/terms-of-service.component';
 import { ComingSoonMessageComponent } from './coming-soon-message/coming-soon-message.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -42,7 +43,9 @@ import {ReactiveFormsModule} from "@angular/forms";
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [Title],
   bootstrap: [AppComponent]

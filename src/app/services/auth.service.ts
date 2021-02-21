@@ -1,60 +1,28 @@
 import { Injectable } from '@angular/core';
-import {Subject} from "rxjs";
+import { HttpClient } from "@angular/common/http";
+import { environment } from '../../environments/environment';
+import {Observable, Subject} from "rxjs";
+
+export interface PutResponse { n: number, nModified: number, ok: number }
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  currentUserConnected: any;
-  currentUserConnectedSubject: Subject<any> = new Subject<any>()
+  userConnectedSubject: Subject<any> = new Subject<any>();
 
-  datas = [
-    {
-      mail: 'client@mail.com',
-      password: 'psswd',
-      firstname: 'Client',
-      lastname: 'CLIENT',
-      role: ['CUSTOMER'],
-    },
-    {
-      mail: 'client-createur@mail.com',
-      password: 'psswd',
-      firstname: 'Client-Createur',
-      lastname: 'CLIENT-CREATOR',
-      role: ['CUSTOMER', 'CREATOR'],
-    },
-    {
-      mail: 'admin@mail.com',
-      password: 'psswd',
-      firstname: 'Admin',
-      lastname: 'ADMIN',
-      role: ['ADMIN'],
-    },
-    {
-      mail: 'dev@mail.com',
-      password: 'psswd',
-      firstname: 'Dev',
-      lastname: 'DEV',
-      role: ['DEV'],
-    }
-  ]
+  constructor(private http: HttpClient) { }
 
-  constructor() { }
-
-  userValidationChecked(credentials: { username: string; password: string; }) {
-    return this.datas
-      .filter(item => item.mail === credentials.username && item.password === credentials.password).length === 1;
+  userValidationChecked(payload: { username: string; password: string; }) {
+    return this.http.post(`${environment.baseUrlApi.users}/check-credentials`, payload);
   }
 
-  initAuthSessionForUser(username: string) {
-    localStorage.setItem('tt-current-session', JSON.stringify(this.datas
-      .filter(item => item.mail === username)[0]));
-    this.currentUserConnected = this.datas.filter(item => item.mail === username)[0];
-    this.currentUserConnectedSubject.next(this.currentUserConnected);
+  login(payload: { username: string; }): Observable<PutResponse> {
+    return this.http.put<PutResponse>(`${environment.baseUrlApi.users}/login`, payload);
   }
 
-  getCurrentSession() {
-    return localStorage.getItem('tt-current-session');
+  logout(payload: { username: string; }): Observable<PutResponse> {
+    return this.http.put<PutResponse>(`${environment.baseUrlApi.users}/logout`, payload);
   }
 }

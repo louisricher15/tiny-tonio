@@ -3,7 +3,7 @@ import { faSearch, faShoppingBag, faSignOutAlt } from '@fortawesome/free-solid-s
 import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { CommonService } from "./services/common.service";
 import { Router } from "@angular/router";
-import {AuthService} from "./services/auth.service";
+import {AuthService, PutResponse} from "./services/auth.service";
 
 @Component({
   selector: 'app-root',
@@ -26,15 +26,18 @@ export class AppComponent implements OnInit, AfterViewInit {
   showHeaderAndFooter = false;
   currentSession: any = null;
 
-  constructor(private commonService: CommonService, private router: Router, private auth: AuthService) { }
+  constructor(private commonService: CommonService, private router: Router, private authService: AuthService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    if (localStorage.getItem('tt-current-user')) {
+      this.currentSession = JSON.parse(localStorage.getItem('tt-current-user') as string);
+    }
+  }
 
   ngAfterViewInit() {
     this.commonService.headerAndFooterVisibleSubject.subscribe(data => this.showHeaderAndFooter = data);
     this.commonService.localeSubject.subscribe(data => this.locale = data);
-    this.auth.currentUserConnectedSubject.subscribe(data => this.currentSession = data);
-    // this.currentSession = this.auth.getCurrentSession();
+    this.authService.userConnectedSubject.subscribe(data => this.currentSession = data);
   }
 
   handleSearch(event: KeyboardEvent, search: HTMLInputElement) {
@@ -57,6 +60,16 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   logout() {
-    this.router.navigate(['login']).then(() => localStorage.removeItem('tt-current-session'));
+    this.authService.logout({ username: this.currentSession.email }).subscribe(
+      (response: PutResponse) => {
+        if (response && response.n === 1) {
+          this.router.navigate(['login']).then(() => {
+            this.authService.userConnectedSubject.next(null)
+            localStorage.removeItem('tt-current-user');
+          });
+        }
+      },
+      error => console.error(error)
+    );
   }
 }

@@ -7,7 +7,8 @@
       <ng-container *ngIf="locale === 'en'">Log in </ng-container>
     </h2>
 
-    <input type="text" [placeholder]="locale === 'fr' ? 'Nom d\'utilisateur' : 'Username'" formControlName="username"/>
+    <input type="text" [placeholder]="locale === 'fr' ? 'Nom d\'utilisateur' : 'Username'" formControlName="username"
+           (input)="submitted = false; hasWrongCredentialsError = false;"/>
     <div class="input-error">
       <ng-container *ngIf="(login?.get('username')?.dirty || login?.get('username')?.touched || submitted) &&
       login?.get('username')?.hasError('required')">
@@ -16,7 +17,8 @@
       </ng-container>
     </div>
 
-    <input type="password" [placeholder]="locale === 'fr' ? 'Mot de passe' : 'Password'" formControlName="password"/>
+    <input type="password" [placeholder]="locale === 'fr' ? 'Mot de passe' : 'Password'" formControlName="password"
+           (input)="submitted = false; hasWrongCredentialsError = false;"/>
     <div class="input-error">
       <ng-container *ngIf="(login?.get('password')?.dirty || login?.get('password')?.touched || submitted) &&
       login?.get('password')?.hasError('required')">
@@ -25,13 +27,12 @@
       </ng-container>
     </div>
 
-    <div class="form-error" *ngIf="(login?.get('password')?.dirty || login?.get('password')?.touched || submitted) &&
-      login?.hasError('wrongCredentials')">
-      <ng-container *ngIf="locale === 'fr'">Mauvais identifiants.</ng-container>
-      <ng-container *ngIf="locale === 'en'">Wrong Credentias.</ng-container>
-    </div>
-
     <input type="submit" [value]="locale === 'fr' ? 'Connexion' : 'Login'">
+
+    <div class="form-error" *ngIf="submitted && hasWrongCredentialsError">
+      <ng-container *ngIf="locale === 'fr'">Mauvais identifiants.</ng-container>
+      <ng-container *ngIf="locale === 'en'">Wrong Credentials.</ng-container>
+    </div>
 
     <div>
       <a [routerLink]="'/forgot-password'">

@@ -91,13 +91,13 @@
             <ng-container *ngIf="locale === 'en'">Plants</ng-container>
           </a>
         </li>
-        <li>
+        <li *ngIf="currentSession === null">
           <a [routerLink]="['login']">
             <ng-container *ngIf="locale === 'fr'">Se connecter</ng-container>
             <ng-container *ngIf="locale === 'en'">Log in</ng-container>
           </a>
         </li>
-        <li>
+        <li *ngIf="currentSession === null">
           <a [routerLink]="['register']">
             <ng-container *ngIf="locale === 'fr'">S'inscrire</ng-container>
             <ng-container *ngIf="locale === 'en'">Sign in</ng-container>
